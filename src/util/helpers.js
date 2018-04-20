@@ -158,3 +158,10 @@ export function filterChildren (array = [], tag) {
       child.componentOptions.Ctor.options.name === tag
   })
 }
+
+export function groupByProperty (xs, key) {
+  return xs.reduce((rv, x) => {
+    (rv[x[key]] = rv[x[key]] || []).push(x)
+    return rv
+  }, {})
+}
